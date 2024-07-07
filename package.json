@@ -5,11 +5,12 @@
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
-    "start": "strapi start",
+    "start:strapi": "strapi start",
     "start:websocket": "node websocketServer.js",
     "build": "strapi build",
     "strapi": "strapi",
-    "deploy": "strapi deploy"
+    "deploy": "strapi deploy",
+    "start": "concurrently \"npm run start:strapi\" \"npm run start:websocket\""
   },
   "dependencies": {
     "@strapi/plugin-cloud": "4.25.2",
@@ -17,6 +18,7 @@
     "@strapi/plugin-users-permissions": "^4.25.2",
     "@strapi/strapi": "4.25.2",
     "better-sqlite3": "8.6.0",
+    "concurrently": "^8.2.2",
     "dotenv": "^16.4.5",
     "jsonwebtoken": "^9.0.2",
     "react": "^18.0.0",
